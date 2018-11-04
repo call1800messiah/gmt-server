@@ -1,19 +1,21 @@
 import mongoose from 'mongoose';
+import { informationSchema } from './information.server.model';
 
 const Schema = mongoose.Schema({  
-  birthdate: String,
+  birthdate: informationSchema,
   className: {
     default: 'person',
     type: String,
   },
-  deathdate: String,
+  deathdate: informationSchema,
+  information: [informationSchema],
   name: String,
   image: {
     default: '',
     type: String,
   },
-  profession: String,
-  race: String,
+  profession: informationSchema,
+  race: informationSchema,
   visible: {
     default: false,
     type: Boolean,

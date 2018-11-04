@@ -42,7 +42,7 @@ export const createData = (data, io) => {
 export const updateData = (data, io) => {
   mongoose.model(data.className).findOneAndUpdate(
     { _id: data.content._id },
-    { data: data.content },
+    data.content,
     { new: true },
     (err, updated) => {
       if (err) {

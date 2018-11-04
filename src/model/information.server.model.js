@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema({  
+export const informationSchema = mongoose.Schema({  
   content: String,
   created: {
     default: Date.now,
@@ -11,7 +11,10 @@ const Schema = mongoose.Schema({
     type: String,
   },
   label: String,
-  use: Number,
+  creator: {
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'user',
+  },
   visible: {
     default: false,
     type: Boolean,
@@ -20,4 +23,4 @@ const Schema = mongoose.Schema({
   collection: 'information',
 });
 
-export default mongoose.model('information', Schema);
+export const informationModel = mongoose.model('information', informationSchema);
